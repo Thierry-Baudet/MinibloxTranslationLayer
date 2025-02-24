@@ -2829,6 +2829,62 @@ ut(CPacketPlayerPosLook, "fields", proto2.util.newFieldList(()=>[{
 	kind: "scalar",
 	T: 2
 }]));
+const CPacketPlayerReconciliation = class extends Message {
+	constructor($) {
+		super();
+		ut(this, "pos");
+		ut(this, "yaw");
+		ut(this, "pitch");
+		ut(this, "onGround");
+		proto2.util.initPartial($, this)
+	}
+	static fromBinary($, et) {
+		return new CPacketPlayerReconciliation().fromBinary($, et)
+	}
+	static fromJson($, et) {
+		return new CPacketPlayerReconciliation().fromJson($, et)
+	}
+	static fromJsonString($, et) {
+		return new CPacketPlayerReconciliation().fromJsonString($, et)
+	}
+	static equals($, et) {
+		return proto2.util.equals(CPacketPlayerReconciliation, $, et)
+	}
+}
+exports.CPacketPlayerPosLook = CPacketPlayerPosLook,
+ut(CPacketPlayerReconciliation, "runtime", proto2),
+ut(CPacketPlayerReconciliation, "typeName", "CPacketPlayerReconciliation"),
+ut(CPacketPlayerReconciliation, "fields", proto2.util.newFieldList(() => [{ 
+	no: 1, 
+	name: "x", 
+	kind: "scalar", T: 2 
+}, { 
+	no: 2, 
+	name: "y", 
+	kind: "scalar", T: 2 
+}, { 
+	no: 3, 
+	name: "z", 
+	kind: "scalar", T: 2 
+}, { 
+	no: 4, 
+	name: "yaw", 
+	kind: "scalar", T: 2 
+}, { 
+	no: 5, 
+	name: "pitch", 
+	kind: "scalar", T: 2 
+}, { 
+	no: 6, 
+	name: "lastProcessedInput", 
+	kind: "scalar", T: 13 
+}, { 
+	no: 7, 
+	name: "reset", 
+	kind: "scalar", 
+	T: 8, 
+	opt: !0 
+}]));
 const CPacketPlayerPosition = class extends Message {
 	constructor($) {
 		super();
@@ -5333,6 +5389,7 @@ const CPACKET_MAP = {
 	CPacketPlayerList,
 	CPacketPlayerPosition,
 	CPacketPlayerPosLook,
+	CPacketPlayerReconciliation,
 	CPacketPong,
 	CPacketRespawn,
 	CPacketScoreboard,
